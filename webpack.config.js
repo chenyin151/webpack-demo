@@ -10,7 +10,8 @@ module.exports = {
     // entry: [__dirname + '/src/script/main.js', __dirname + '/src/script/a.js'],
     // 这种写法其实等价于数组写法,但是区别是给了数组写法起了一个名字，在下面的output中可以动态修改输出文件名
     entry: {
-        'main1': [__dirname + '/src/script/main.js', __dirname + '/src/script/a.js']
+        'main1': [__dirname + '/src/script/main.js', __dirname + '/src/script/a.js'],
+        'main2': __dirname + '/src/script/main.js'
     },
     // entry: {
     //     'main': __dirname + '/src/script/main.js',
@@ -22,7 +23,9 @@ module.exports = {
         path: __dirname + '/dist',
         // 打包的文件名
         // filename: '[name]-[hash].js'
-        filename: 'js/[name]-[chunkhash].js'
+        filename: 'js/[name]-[chunkhash].js',
+        // 发布上线后的服务器地址，这样一旦发布成功，项目根目录会自动替换成http://cdn.con/
+        publicPath: 'http://cdn.com/'
     },
     // 引用插件的地方，我们在这里new htmlWebpackPlugin(),则会生成一个HTML文件，但是这个文件与我们自己写的index.html 
     // 没什么关联，若我们想用自己的index.html则要给它设置template
@@ -32,9 +35,15 @@ module.exports = {
             filename: 'index.html',
             template:'index.html',
             // script标签是放在head还是在body中
-            inject: 'body',
+            // inject: 'body',
+            inject: false,
             title: 'webpack is good',
-            date: new Date()
+            date: new Date(),
+            // 发布会压缩文件
+            minify: {
+                removeComments: true, //删除注释
+                // collapseWhitespace: true //删除空格
+            }
         })
     ]
 }
