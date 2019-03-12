@@ -29,10 +29,12 @@ module.exports = {
     plugins: [
         new htmlWebpackPlugin({
             // 可以给生成的html指定名称
-            filename: 'index-[hash].html',
+            filename: 'index.html',
             template:'index.html',
             // script标签是放在head还是在body中
-            inject: 'body'
+            inject: 'body',
+            title: 'webpack is good',
+            date: new Date()
         })
     ]
 }
