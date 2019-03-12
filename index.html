@@ -9,6 +9,9 @@
 <body>
     <div>
         <%=htmlWebpackPlugin.options.date%>
+        <% for (var key in htmlWebpackPlugin){%>
+            <%=key%>
+        <%}%>
     </div>
 </body>
 </html>
