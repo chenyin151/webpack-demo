@@ -27,8 +27,8 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                // exclude: '/node_modules/',//不用去打包node_modules目录内容
-                include: __dirname + '/src/', //让webpack只打包src目录下的内容来提升打包的速度
+                exclude: path.resolve(__dirname, '/node_modules/'),//不用去打包node_modules目录内容
+                include: path.resolve(__dirname, '/src'), //让webpack只打包src目录下的内容来提升打包的速度
                 options: {
                     presets: ['@babel/preset-env']
                 }
