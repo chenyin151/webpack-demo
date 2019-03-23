@@ -57,8 +57,9 @@ module.exports = {
                 loader: 'style-loader!css-loader!postcss-loader!less-loader'
             },
             {
-                test: /\.htm$/,
-                loader: 'html-loader'
+                test: /\.html$/,
+                loader: 'html-loader',
+                include: __dirname + '/src'
             }
         ]
     },
