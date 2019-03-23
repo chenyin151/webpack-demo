@@ -59,6 +59,10 @@ module.exports = {
             {
                 test: /\.tpl$/,
                 loader: 'ejs-loader'
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/i,
+                loader: 'file-loader'
             }
         ]
     },
