@@ -1,6 +1,7 @@
 // webpack的配置文件
 // 引入html-webpack-plugin插件
 const path = require('path');
+const webpack = require('webpack')
 console.log(">>>>>>>>>>>>",__dirname);
 var htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
@@ -33,19 +34,27 @@ module.exports = {
                     presets: ['@babel/preset-env']
                 }
             },
+            // {
+            //     test: /\.css$/,
+            //     loader: 'style-loader!css-loader'
+            // }
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                loader: 'style-loader!css-loader!postcss-loader'
             }
         ]
     },
+    // postcss: function(){
+    //     return [autoprefixer]
+    // },
     // 引用插件的地方，我们在这里new htmlWebpackPlugin(),则会生成一个HTML文件，但是这个文件与我们自己写的index.html 
     // 没什么关联，若我们想用自己的index.html则要给它设置template
     plugins: [
+        
         new htmlWebpackPlugin({
             filename: 'index.html',
             template: 'index.html',
-            inject: 'body'
+            inject: false
         })
     ]
 }
