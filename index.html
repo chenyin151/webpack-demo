@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%=htmlWebpackPlugin.options.title%></title>
-    <script type="text/javascript">
-        <%=
-            compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source()
-        %>
-    </script>
+    
 </head>
 <body>
     <% for (var k in htmlWebpackPlugin.files.chunks) { %>
@@ -26,6 +22,10 @@
             <%=key%>--<%=JSON.stringify(htmlWebpackPlugin.options[key])%>
         <%}%>
     </div>
+    <div id="app"></div>
+    <script type="text/javascript">
+        <%=compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source()%>
+    </script>
     <!-- 我是一行注释 -->
 </body>
 </html>

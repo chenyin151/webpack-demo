@@ -1,4 +1,6 @@
-import tpl from './layer.less';
+import './layer.less';
+import tpl from './layer.htm';
+
 function layer() {
     return {
         name:'layer',

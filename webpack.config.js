@@ -55,6 +55,10 @@ module.exports = {
             {
                 test: /\.less$/,
                 loader: 'style-loader!css-loader!postcss-loader!less-loader'
+            },
+            {
+                test: /\.htm$/,
+                loader: 'html-loader'
             }
         ]
     },

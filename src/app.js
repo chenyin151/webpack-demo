@@ -1,12 +1,11 @@
 import layer from './components/layer/layer.js';
 import './css/common.css';
+import Layer from './components/layer/layer.js';
 
 const App = function() {
-    const a = new Set();
-    a.add(111)
-    a.add(222)
-    const NUM = 11112;
-    alert(a.size)
-    console.log(layer);
+    var dom = document.getElementById('app');
+    var layer = new Layer();
+    console.log(dom)
+    dom.innerHTML = layer.tpl;
 }
 new App();
